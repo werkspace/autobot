@@ -1,2 +1,2 @@
 # autobot
-A personnal project consisting in builing a simple but autonomous robot.
+A personnal project consisting in building a simple but autonomous robot.
