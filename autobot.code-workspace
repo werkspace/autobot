@@ -3,6 +3,9 @@
 		{
 			"path": ".",
 			"name": "autobot"
+		},
+		{
+			"path": "/home/raphael/PycharmProjects"
 		}
 	],
 	"settings": {}
