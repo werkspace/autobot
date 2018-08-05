@@ -58,7 +58,7 @@ def ransac_line_extraction(data, k_neighbours, degrees_range, consensus, toleran
 
         reference_candidate_idx = np.random.randint(0, not_associated_readings.shape[1])
 
-        is_within_range =  np.abs(not_associated_readings[3, :] - not_associated_readings[3, reference_candidate_idx]) < degrees_range
+        is_within_range =  np.abs(not_associated_readings[3, :] - not_associated_readings[3, reference_candidate_idx]) <= degrees_range
     
         candidates_idx = np.random.choice(is_within_range.nonzero()[0], 
                                         size=min(k_neighbours, is_within_range.nonzero()[0].shape[0]), 

@@ -21,10 +21,10 @@ r_sensor, theta_sensor = cartesian_to_polar(total_readings[0,:], total_readings[
 total_readings = np.vstack((total_readings, r_sensor, theta_sensor))
 
 # Algorithm hyperparameter
-n_iter = 1000
+n_iter = 2000
 k_neighbours = 15
 degrees_range = (15.0 / 360.0) * (2 * np.pi )
-consensus = k_neighbours * .3
+consensus = k_neighbours * .7
 tolerance = 100 # squared meter
 
 print('World size :', x_world, y_world)
