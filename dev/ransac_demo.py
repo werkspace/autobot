@@ -32,7 +32,6 @@ print('Number of readings :', len(total_readings[1]))
 print('Number of neighbours :', k_neighbours)
 print('Consensus :', consensus)
 
-
 #%% Line extraction
 
 line_models = ransac_line_extraction(data=total_readings,
@@ -55,10 +54,14 @@ for m in line_models:
     x_min = m.fitted[0].min()
     x_max = m.fitted[0].max()
     x = np.linspace(x_min, x_max)
-    plt.plot(x, m.slope * x + m.interceipt, c=c)
-    plt.plot(m.points[0], m.points[1], '*', c=c)
+    plt.plot(x, m.slope * x + m.interceipt, color=c)
+    plt.plot(m.points[0], m.points[1], '*', color=c)
+
+# The origin of the world.
+plt.plot(0, 0, '+')
 
 plt.xlim(-200, 200)
 plt.ylim(-200, 300)
+plt.axis('equal')
 
 plt.show()
