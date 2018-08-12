@@ -8,21 +8,21 @@ import geometry as geo
 
 import pdb
 
-def plot_frame(origin, basis, ax=None, *args, **kwargs):
+def plot_frame(origin, theta, ax=None, *args, **kwargs):
     """
     Draw an arrow representing an orthogonal frame defined by its origin and basis.
 
         :param origin: a (2,1) vector representing the origin of the frame to be drawn.
-        :param basis: a (2,2) vector representing the basis of the frame to be drawn.
+        :param theta: an orientation angle.
 
         :type origin: a numpy nd-array.
-        :type basis: a numpy nd-array.
+        :type theta: a float.
 
     """
     # Compute the image of the identity and the origin in the target frame.
     # The former will be the origin of the arrow, the latter the end of the arrow.
-    frame_origin = geo.to_frame(origin, basis, np.zeros((2)))
-    frame_identity = geo.to_frame(origin, basis, np.array([1,1]))
+    frame_origin = geo.to_frame(origin, theta, np.zeros((2)))
+    frame_identity = geo.to_frame(origin, theta, np.array([1,1]))
 
     # Getting x and y columns
     x, y = frame_origin.T
@@ -40,12 +40,16 @@ if __name__ == '__main__':
     print(title)
 
     origin = np.array([5, 5])
-    basis = np.array([[-1, 0], [0, -1]])
+    theta = np.pi / 2
 
     fig, ax = plt.subplots()
     ax.plot(0, 0, 'k+')
     ax.set_title(title)
 
-    plot_frame(origin=origin, basis=basis, ax=ax)
+    ax.set_ylim((0,10))
+    ax.set_xlim((0,10))
     
+    plot_frame(origin=origin, theta=theta, ax=ax)
     plt.show()
+
+    
